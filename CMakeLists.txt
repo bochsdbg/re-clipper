@@ -2,11 +2,11 @@ CMAKE_MINIMUM_REQUIRED(VERSION 3.2)
 
 project(ReClipper CXX)
 
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake/")
-set(CMAKE_VERBOSE_MAKEFILE ON)
 
 if(CMAKE_COMPILER_IS_GNUCXX)
-    add_definitions(-Wall -ansi -Wno-deprecated -pthread)
+    add_definitions(-Wall -ansi -Wno-deprecated -pthread -Wno-register)
 endif()
 
 if(MSVC)
@@ -15,3 +15,5 @@ if(MSVC)
 endif() 
 
 add_subdirectory(examples)
+
+add_executable(main main.cpp clipper.cpp)
